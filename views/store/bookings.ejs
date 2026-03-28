@@ -1,0 +1,62 @@
+<%- include('../partials/head') %>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-red-50 to-orange-100 font-sans min-h-screen">
+
+<!-- ✅ Header -->
+<%- include('../partials/nav') %>
+
+<!-- ✅ Booking Page -->
+<main class="container mx-auto max-w-xl bg-white/90 backdrop-blur-md border border-gray-200 shadow-2xl rounded-2xl p-8 mt-12">
+  <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-2">Book Your Stay</h1>
+  <p class="text-center text-gray-600 mb-6">Fill in your details to reserve your perfect home.</p>
+
+  <form class="space-y-5">
+    <div>
+      <label class="block font-medium text-gray-700 mb-1">Guest Name</label>
+      <input 
+        type="text" 
+        placeholder="Enter your name" 
+        class="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition" 
+      />
+    </div>
+
+    <div>
+      <label class="block font-medium text-gray-700 mb-1">Check-in Date</label>
+      <input 
+        type="date" 
+        class="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition" 
+      />
+    </div>
+
+    <div>
+      <label class="block font-medium text-gray-700 mb-1">Check-out Date</label>
+      <input 
+        type="date" 
+        class="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition" 
+      />
+    </div>
+
+    <div>
+      <label class="block font-medium text-gray-700 mb-1">Number of Guests</label>
+      <input 
+        type="number" 
+        min="1" 
+        class="w-full border border-gray-300 rounded-lg p-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 transition" 
+      />
+    </div>
+
+    <button 
+      type="submit" 
+      class="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white font-semibold py-3 rounded-lg hover:from-red-600 hover:to-pink-600 transition shadow-md hover:shadow-lg"
+    >
+      Book Now
+    </button>
+  </form>
+
+  <div class="mt-8 text-center text-gray-600 text-sm">
+    <p>For demo purposes, this booking form is non-functional.</p>
+  </div>
+</main>
+
+</body>
+</html>

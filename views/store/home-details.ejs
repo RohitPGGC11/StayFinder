@@ -1,0 +1,51 @@
+<%- include('../partials/head') %>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-red-50 to-orange-100 font-sans min-h-screen">
+
+<!-- ✅ Header -->
+<%- include('../partials/nav') %>
+
+<!-- ✅ Main Content -->
+<main class="container mx-auto px-6 py-10">
+  <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">
+    🏡 Home Details Page
+  </h2>
+
+  <div class="bg-white rounded-2xl shadow-md p-6 max-w-4xl mx-auto">
+    
+    <!-- ✅ Image -->
+    <img 
+      src="<%= home.photo || '/images/sample.jpg' %>" 
+      alt="<%= home.houseName || 'Sample Home' %>" 
+      class="w-full h-80 object-cover rounded-lg shadow"
+    />
+
+    <!-- ✅ Info -->
+    <div class="mt-6">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2"><%= home.houseName || 'Sample Home' %></h1>
+      <p class="text-xl text-gray-600 mb-4"><%= home.location || 'Sample Location' %></p>
+      <p class="text-lg text-gray-700 mb-4">
+        <%= home.description || 'This is a beautiful sample home with modern amenities and a cozy atmosphere. Perfect for a relaxing stay.' %>
+      </p>
+      
+      <!-- ✅ Price & Rating -->
+      <div class="flex justify-between items-center mb-4">
+        <p class="text-2xl font-bold text-red-600">₹<%= home.price || '5000' %> <span class="text-black font-normal">/ night</span></p>
+        <span class="text-yellow-500 font-medium text-xl">⭐ <%= home.rating || '4.8' %></span>
+      </div>
+
+      <!-- ✅ Action Buttons -->
+      <div class="flex gap-4 mt-6">
+        <a href="/home-list" class="px-5 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition">⬅ Back</a>
+        <button class="px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">Book Now</button>
+
+        <div>
+            <%- include('../partials/favourite') %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main> 
+
+</body>
+</html>

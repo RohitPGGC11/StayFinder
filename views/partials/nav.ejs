@@ -1,0 +1,206 @@
+<header
+  class="bg-gradient-to-r from-red-600 via-red-400 to-pink-600 text-white shadow-md"
+>
+  <div class="container mx-auto flex items-center justify-between px-6 py-3">
+    <!-- Logo / Brand -->
+    <a
+      href="/"
+      class="text-3xl font-extrabold tracking-tight hover:scale-105 transition-transform duration-300"
+    >
+      Airbnb
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex list-none gap-8 items-center text-lg font-medium">
+      <li>
+        <a
+          href="/"
+          class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'home' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+          >Home</a
+        >
+      </li>
+
+      <% if (isLoggedIn) { %> 
+        <% if (user && user.userType === 'guest') { %>
+          <li>
+            <a
+              href="/home-list"
+              class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'home-list' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+              >Home List</a
+            >
+          </li>
+            <li>
+            <a
+              href="/favourite-list"
+              class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'favourite-list' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+              >Favourites</a
+            >
+          </li>
+          
+          <li>
+            <a
+              href="/bookings"
+              class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'bookings' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+              >Bookings</a
+            >
+          </li>
+        
+        <% } else { %>
+          <li>
+            <a
+              href="/host-home-list"
+              class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'host-home-list' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+              >Host Homes</a
+            >
+          </li>
+          <li>
+            <a
+              href="/add-home"
+              class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'add-home' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+              >Add Home</a
+            >
+          </li>
+        <% } %>
+
+        <!-- Logout button -->
+        <li>
+          <form action="/logout" method="post" class="inline m-0">
+            <button
+              type="submit"
+              class="px-3 py-2 rounded-xl bg-white text-red-600 font-bold transition duration-300 hover:bg-red-500 hover:text-white hover:scale-105"
+            >
+              Logout
+            </button>
+          </form>
+        </li>
+      <% } else { %>
+        <li>
+          <a
+            href="/login"
+            class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'login' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            href="/signup"
+            class="px-3 py-2 rounded-xl transition duration-300 <%= currentpage === 'signup' ? 'bg-red-600 shadow-md' : 'hover:bg-red-600 hover:shadow-md' %>"
+            >Sign Up</a
+          >
+        </li>
+      <% } %>
+    </ul>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="md:hidden p-2 focus:outline-none"
+      id="menu-btn"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4 6h16M4 12h16m-7 6h7"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div
+    id="mobile-menu"
+    class="md:hidden max-h-0 overflow-hidden px-6 transition-all duration-300 ease-in-out"
+  >
+    <ul class="flex flex-col gap-3 text-lg font-medium py-4">
+      <li>
+        <a
+          href="/"
+          class="<%= currentpage === 'home' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+          >Home</a
+        >
+      </li>
+      <% if (isLoggedIn) { %>
+        <li>
+          <a
+            href="/home-list"
+            class="<%= currentpage === 'home-list' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+            >Home List</a
+          >
+        </li>
+        <li>
+          <a
+            href="/bookings"
+            class="<%= currentpage === 'bookings' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+            >Bookings</a
+          >
+        </li>
+        <li>
+          <a
+            href="/favourite-list"
+            class="<%= currentpage === 'favourite-list' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+            >Favourites</a
+          >
+        </li>
+        <li>
+          <a
+            href="/host-home-list"
+            class="<%= currentpage === 'host-home-list' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+            >Host Homes</a
+          >
+        </li>
+        <li>
+          <a
+            href="/add-home"
+            class="<%= currentpage === 'add-home' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+            >Add Home</a
+          >
+        </li>
+        <li>
+          <form action="/logout" method="post" class="m-0">
+            <button
+              class="w-full text-left px-3 py-2 bg-white text-red-600 rounded-md font-bold hover:bg-red-100"
+            >
+              Logout
+            </button>
+          </form>
+        </li>
+      <% } else { %>
+        <li>
+          <a
+            href="/login"
+            class="<%= currentpage === 'login' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            href="/signup"
+            class="<%= currentpage === 'signup' ? 'text-red-200 font-bold' : 'hover:text-red-200' %>"
+            >Sign Up</a
+          >
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn.addEventListener("click", () => {
+    const isOpen = menu.classList.contains("max-h-96");
+    btn.setAttribute("aria-expanded", !isOpen);
+
+    menu.classList.toggle("max-h-0");
+    menu.classList.toggle("max-h-96"); // adjust height if menu has more items
+  });
+</script>
